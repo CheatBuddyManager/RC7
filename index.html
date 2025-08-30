@@ -39,7 +39,7 @@
       background: linear-gradient(90deg, #ff0080, #7928ca);
       border-radius: 20px;
       text-decoration: none;
-      box-shadow: 0 0 20px #ff0080;
+      box-shadow: 0 0 20px #bbb;
       transition: 0.3s;
     }
 
@@ -54,8 +54,8 @@
       top: 50%;
       left: -200px;
       transform: translateY(-50%);
-      width: 200px;
-      animation: fly 12s linear infinite;
+      width: 150px;
+      animation: fly 30s linear infinite;
       image-rendering: pixelated;
     }
 
@@ -64,7 +64,7 @@
       to { left: 110%; }
     }
 
-    /* Créditos e Discord */
+    /* Credits and Discord */
     .credits, .discord {
       position: fixed;
       bottom: 10px;
@@ -94,13 +94,13 @@
   <h1>🚀 RC7 Executor 🚀</h1>
 
   <!-- BOTÃO FUNCIONAL -->
-  <a class="download-btn" href="https://www.mediafire.com/file/ouh7rbkv7o4vnnm/RC7.zip/file" download>⬇️ Download RC7.exe</a>
+  <a class="download-btn" href="https://www.mediafire.com/file/ouh7rbkv7o4vnnm/RC7.zip/file" download>Download RC7.exe</a>
 
   <!-- Nyan Cat -->
-  <img class="nyan" src="https://media.giphy.com/media/sIIhZliB2McAo/giphy.gif" alt="Nyan Cat">
+  <img class="nyan" src="https://share.google/oUXE59471xjNAISOd" alt="Nyan Cat">
 
   <!-- Créditos -->
-  <div class="credits">Créditos: Orzscript</div>
+  <div class="credits">Credits: Orzscript</div>
 
   <!-- Discord -->
   <div class="discord">
@@ -125,7 +125,7 @@
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         size: Math.random() * 2,
-        speed: Math.random() * 0.5 + 0.2
+        speed: Math.random() * 0.1 + 0.2
       });
     }
 
@@ -150,4 +150,3 @@
   </script>
 </body>
 </html>
-
