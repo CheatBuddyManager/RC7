@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>RC7 Executor</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      user-select: none;
+    }
+
+    /* Fundo estrelado */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    h1 {
+      margin-top: 50px;
+      font-size: 3em;
+      text-shadow: 0 0 15px white;
+    }
+
+    /* Botão download */
+    .download-btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 15px 40px;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(90deg, #ff0080, #7928ca);
+      border-radius: 20px;
+      text-decoration: none;
+      box-shadow: 0 0 20px #ff0080;
+      transition: 0.3s;
+    }
+
+    .download-btn:hover {
+      box-shadow: 0 0 40px #ff0080;
+      transform: scale(1.1);
+    }
+
+    /* Nyan Cat */
+    .nyan {
+      position: absolute;
+      top: 50%;
+      left: -200px;
+      transform: translateY(-50%);
+      width: 200px;
+      animation: fly 12s linear infinite;
+      image-rendering: pixelated;
+    }
+
+    @keyframes fly {
+      from { left: -250px; }
+      to { left: 110%; }
+    }
+
+    /* Créditos e Discord */
+    .credits, .discord {
+      position: fixed;
+      bottom: 10px;
+      font-size: 14px;
+      color: #bbb;
+      text-shadow: 0 0 5px #fff;
+    }
+    .credits {
+      left: 15px;
+    }
+    .discord {
+      right: 15px;
+    }
+    .discord a {
+      color: #00bfff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .discord a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="stars"></canvas>
+
+  <h1>🚀 RC7 Executor 🚀</h1>
+
+  <!-- BOTÃO FUNCIONAL -->
+  <a class="download-btn" href="SEU_ARQUIVO.exe" download>⬇️ Download RC7.exe</a>
+
+  <!-- Nyan Cat -->
+  <img class="nyan" src="https://media.giphy.com/media/sIIhZliB2McAo/giphy.gif" alt="Nyan Cat">
+
+  <!-- Créditos -->
+  <div class="credits">Créditos: Orzscript</div>
+
+  <!-- Discord -->
+  <div class="discord">
+    <a href="https://discord.gg/jWR6KBrnED" target="_blank">Discord RC7</a>
+  </div>
+
+  <script>
+    // Fundo estrelado animado
+    const canvas = document.getElementById("stars");
+    const ctx = canvas.getContext("2d");
+    let stars = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.onresize = resize;
+    resize();
+
+    for (let i = 0; i < 200; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2,
+        speed: Math.random() * 0.5 + 0.2
+      });
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "white";
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        star.y += star.speed;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+      });
+      requestAnimationFrame(drawStars);
+    }
+
+    drawStars();
+  </script>
+</body>
+</html>
